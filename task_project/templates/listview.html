@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<h2>List of Profiles </h2>
+
+<a href="{% url 'createprofile' %}">Create Profile</a>
+
+<ul>
+
+    {% for profile in profiles%}
+
+    {{ profile.name }} - {{ profile.age }} - {{ profile.address }} - {{ profile.skill }} -
+    <a href="{% url 'details' profile.pk %}">Details</a>
+    <a href="{% url 'update' profile.pk %}">Update</a>
+    <a href="{% url 'delete' profile.pk %}">Delete</a>
+    <br>
+
+    {% endfor %}
+
+</ul>
+
+</body>
+</html>
